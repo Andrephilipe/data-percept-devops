@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: spring-app
+  name: data-percept-app
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: spring-app
+      app: data-percept-app
   template:
     metadata:
       labels:
-        app: spring-app
+        app: data-percept-app
     spec:
       containers:
-      - name: spring-app
+      - name: data-percept-app
         image: andrephilipe/data-percept:latest
         ports:
         - containerPort: 8080
@@ -24,6 +24,3 @@ spec:
           value: root
         - name: SPRING_DATASOURCE_PASSWORD
           value: q123456
-        envFrom:
-        - configMapRef:
-            name: data-percept-configmap
