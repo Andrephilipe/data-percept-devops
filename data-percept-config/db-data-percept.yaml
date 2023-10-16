@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: db-data-percept
+  labels:
+    app: db-data-percept
+spec:
+  containers:
+    - name: db-noticias-container
+      image: mysql:latest
+      ports:
+        - containerPort: 3306
+      envFrom:
+        - configMapRef:
+            name: db-data-percept-configmap

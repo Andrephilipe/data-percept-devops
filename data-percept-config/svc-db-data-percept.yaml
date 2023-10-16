@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: svc-db-data-percept
+spec:
+  type: ClusterIP
+  ports:
+    - port: 3306
+  selector:
+    app: db-data-percept
